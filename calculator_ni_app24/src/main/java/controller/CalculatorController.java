@@ -39,45 +39,45 @@ public class CalculatorController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String calcuNum = request.getParameter("calcuNum");
-		String calcuSymbol = request.getParameter("calcuSymbol");
+		String calcNum = request.getParameter("calcNum");
+		String calcSymbol = request.getParameter("calcSymbol");
 
-		if (calcuNum != null) {
-			inputNumList.add(calcuNum);
+		if (calcNum != null) {
+			inputNumList.add(calcNum);
 			request.setAttribute("result", String.join("", inputNumList));
 			symFlg = false;
 		}
 
-		if (calcuSymbol != null) {
+		if (calcSymbol != null) {
 			symFlg = true;
 		}
 
 		if (symFlg) {
 
-			if (calcuSymbol.equals("AC")) {
+			if (calcSymbol.equals("AC")) {
 				numList.clear();
 				inputNumList.clear();
 			}
 
-			if (calcuSymbol.equals("C")) {
+			if (calcSymbol.equals("C")) {
 				numList.clear();
 			}
 
-			String calcuNumStr = String.join("", inputNumList);
+			String calcNumStr = String.join("", inputNumList);
 
-			if (calcuSymbol.equals("=") && inputNumList.size() > 0) {
-				numList.add(calcuNumStr);
-			} else if (!calcuSymbol.equals("") && !calcuSymbol.equals("=") && inputNumList.size() > 0) {
-				numList.add(calcuNumStr);
-				numList.add(calcuSymbol);
+			if (calcSymbol.equals("=") && inputNumList.size() > 0) {
+				numList.add(calcNumStr);
+			} else if (!calcSymbol.equals("") && !calcSymbol.equals("=") && inputNumList.size() > 0) {
+				numList.add(calcNumStr);
+				numList.add(calcSymbol);
 			}
-			if (!calcuSymbol.equals("=")) {
-				request.setAttribute("result", calcuNumStr);
+			if (!calcSymbol.equals("=")) {
+				request.setAttribute("result", calcNumStr);
 			}
 
 			inputNumList.clear();
 
-			if (calcuSymbol.equals("=")) {
+			if (calcSymbol.equals("=")) {
 				String joinNumList = String.join("", numList);
 
 				if (joinNumList.contains("×") || joinNumList.contains("÷")) {
