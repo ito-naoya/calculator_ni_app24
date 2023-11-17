@@ -12,14 +12,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/calcu")
+@WebServlet("/calc")
 public class CalculatorController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public CalculatorController() {
-
 		super();
-
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -34,8 +32,9 @@ public class CalculatorController extends HttpServlet {
 	List<String> inputNumList = new ArrayList<String>();
 	List<String> numList = new ArrayList<String>();
 	Boolean symFlg = false;
+	
 	DecimalFormat format = new DecimalFormat("0.#");
-
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -44,7 +43,7 @@ public class CalculatorController extends HttpServlet {
 
 		if (calcNum != null) {
 			inputNumList.add(calcNum);
-			request.setAttribute("result", String.join("", inputNumList));
+			request.setAttribute("calcResult", String.join("", inputNumList));
 			symFlg = false;
 		}
 
@@ -59,10 +58,6 @@ public class CalculatorController extends HttpServlet {
 				inputNumList.clear();
 			}
 
-			if (calcSymbol.equals("C")) {
-				numList.clear();
-			}
-
 			String calcNumStr = String.join("", inputNumList);
 
 			if (calcSymbol.equals("=") && inputNumList.size() > 0) {
@@ -72,7 +67,7 @@ public class CalculatorController extends HttpServlet {
 				numList.add(calcSymbol);
 			}
 			if (!calcSymbol.equals("=")) {
-				request.setAttribute("result", calcNumStr);
+				request.setAttribute("calcResult", calcNumStr);
 			}
 
 			inputNumList.clear();
@@ -83,13 +78,13 @@ public class CalculatorController extends HttpServlet {
 				if (joinNumList.contains("×") || joinNumList.contains("÷")) {
 					String replace1 = joinNumList.replace("÷", "/");
 					String replaceNumList = replace1.replace("×", "*");
-					double anser = Eval.eval(replaceNumList);
-					request.setAttribute("result", format.format(anser));
-					//					request.setAttribute("result", replaceNumList);
+					//					double anser = Eval.eval(replaceNumList);
+					//					request.setAttribute("result", format.format(anser));
+					request.setAttribute("calcResult", replaceNumList);
 				} else {
-					double anser = Eval.eval(joinNumList);
-					request.setAttribute("result", format.format(anser));
-					//					request.setAttribute("result", joinNumList);
+					//					double anser = Eval.eval(joinNumList);
+					//					request.setAttribute("result", format.format(anser));
+					request.setAttribute("calcResult", joinNumList);
 				}
 				numList.clear();
 			}
@@ -97,9 +92,7 @@ public class CalculatorController extends HttpServlet {
 			symFlg = false;
 
 		}
-
 		doGet(request, response);
-
 	}
 
 }

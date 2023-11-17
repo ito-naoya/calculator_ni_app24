@@ -13,7 +13,7 @@
 	margin-top: 100px;
 }
 
-.calcuBtn {
+.calcBtn {
 	width: 60px;
 	height: 60px;
 	display: inline-block;
@@ -23,7 +23,7 @@
 	border-radius: 20px;
 }
 
-.calcuBtn:hover{
+.calcBtn:hover{
 	background-color: darkblue;
 	color: white;
 }
@@ -33,11 +33,10 @@
 	height: 60px;
 }
 
-#resultText{
+#calcResult{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: white;
 	font-size: 40px;
 	font-weight: bold;
 	background-color: burlywood;
@@ -48,12 +47,10 @@
 	border-radius: 20px 20px 0px 0px; /* 左上、右上、右下、左下 */
 }
 
-.calcResult{
-	background-color: darkblue;
-	width: 90%;
-	height: 70%;
-}
-
-.result{
-	margin-right: 5px;
+#result {
+	background-color: lightslategray;
+	width: 85%;
+	height: 75%;
+	color: white;
+	padding-right: 5px;
 }

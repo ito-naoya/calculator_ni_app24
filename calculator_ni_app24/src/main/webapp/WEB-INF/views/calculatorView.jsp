@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>でんたくさん</title>
 <link rel="stylesheet" href="./css/caluculator.css"
 </head>
 <body>
@@ -14,21 +14,21 @@
 
 		<h1>でんたく</h1>
 
-		<div id="resultText">
+		<div id="calcResult">
+			<div id="result">
 
-			<!-- <script>
-				const result = eval(${result} ); 
-				const resultText = document.getElementById("resultText");
+				<%-- ${result} --%>
+
+				<script>
+				const calcResult = eval(${calcResult}); 
+				const result = document.getElementById("result");
 				
-				if(result){
-					resultText.innerHTML = result;
-					}
-			</script> -->
+				if(calcResult){
+					result.innerHTML = calcResult;
+				}
+				</script>
 
-			<p class="calcResult">
-				<span class="result">${result}</span>
-			</p>
-
+			</div>
 		</div>
 
 		<table class="calcTable">
@@ -36,61 +36,60 @@
 			<tbody>
 
 				<tr>
-					<form action="calcu" method="post">
+					<form action="calc" method="post">
 						<td colspan="3"><input type="submit" value="AC"
-							class="calcuBtn colspan" name="calcSymbol"></td>
-
-						<td><input type="submit" value="÷" class="calcuBtn"
+							class="calcBtn colspan" name="calcSymbol"></td>
+						<td><input type="submit" value="÷" class="calcBtn"
 							name="calcSymbol"></td>
 					</form>
 				</tr>
 
 				<tr>
-					<form action="calcu" method="post">
-						<td><input type="submit" value="7" class="calcuBtn"
+					<form action="calc" method="post">
+						<td><input type="submit" value="7" class="calcBtn"
 							name="calcNum"></td>
-						<td><input type="submit" value="8" class="calcuBtn"
+						<td><input type="submit" value="8" class="calcBtn"
 							name="calcNum"></td>
-						<td><input type="submit" value="9" class="calcuBtn"
+						<td><input type="submit" value="9" class="calcBtn"
 							name="calcNum"></td>
-						<td><input type="submit" value="×" class="calcuBtn"
+						<td><input type="submit" value="×" class="calcBtn"
 							name="calcSymbol"></td>
 					</form>
 				</tr>
 
 				<tr>
-					<form action="calcu" method="post">
-						<td><input type="submit" value="4" class="calcuBtn"
+					<form action="calc" method="post">
+						<td><input type="submit" value="4" class="calcBtn"
 							name="calcNum"></td>
-						<td><input type="submit" value="5" class="calcuBtn"
+						<td><input type="submit" value="5" class="calcBtn"
 							name="calcNum"></td>
-						<td><input type="submit" value="6" class="calcuBtn"
+						<td><input type="submit" value="6" class="calcBtn"
 							name="calcNum"></td>
-						<td><input type="submit" value="-" class="calcuBtn"
+						<td><input type="submit" value="-" class="calcBtn"
 							name="calcSymbol"></td>
 					</form>
 				</tr>
 
 				<tr>
-					<form action="calcu" method="post">
-						<td><input type="submit" value="1" class="calcuBtn"
+					<form action="calc" method="post">
+						<td><input type="submit" value="1" class="calcBtn"
 							name="calcNum"></td>
-						<td><input type="submit" value="2" class="calcuBtn"
+						<td><input type="submit" value="2" class="calcBtn"
 							name="calcNum"></td>
-						<td><input type="submit" value="3" class="calcuBtn"
+						<td><input type="submit" value="3" class="calcBtn"
 							name="calcNum"></td>
-						<td><input type="submit" value="+" class="calcuBtn"
+						<td><input type="submit" value="+" class="calcBtn"
 							name="calcSymbol"></td>
 					</form>
 				</tr>
 
 				<tr>
-					<form action="calcu" method="post">
+					<form action="calc" method="post">
 						<td colspan="2"><input type="submit" value="0"
-							class="calcuBtn colspan" name="calcNum"></td>
-						<td><input type="submit" value="." class="calcuBtn"
+							class="calcBtn colspan" name="calcNum"></td>
+						<td><input type="submit" value="." class="calcBtn"
 							name="calcNum"></td>
-						<td><input type="submit" value="=" class="calcuBtn"
+						<td><input type="submit" value="=" class="calcBtn"
 							name="calcSymbol"></td>
 
 					</form>
