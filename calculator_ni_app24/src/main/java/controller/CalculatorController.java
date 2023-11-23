@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +32,7 @@ public class CalculatorController extends HttpServlet {
 	List<String> numList = new ArrayList<String>();
 	Boolean symFlg = false;
 	
-	DecimalFormat format = new DecimalFormat("0.#");
+//	DecimalFormat format = new DecimalFormat("0.#");
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
